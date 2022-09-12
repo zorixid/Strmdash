@@ -59,10 +59,12 @@ useEffect(() => {
         setConnectedAddress(addr);
       } catch (err) {
         console.error(err);
-        alert('There was a problem connecting to MetaMask');
+        toast.info(`Connecting to your wallet`, {
+          theme: 'dark',
+        });
       }
     } else {
-      alert('Install MetaMask');
+      toast.error('Wallet not detected');
     }
   };
 
