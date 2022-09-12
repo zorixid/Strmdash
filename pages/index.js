@@ -38,8 +38,8 @@ useEffect(() => {
 
   useEffect(() => {
     if (window.ethereum) {
-      window.ethereum.on('accountsChanged', connectToMetamask);
-      window.ethereum.on('chainChanged', connectToMetamask);
+      window.ethereum.on('accountsChanged', connectHandler);
+      window.ethereum.on('chainChanged', connectHandler);
     }
   }, []);
 
@@ -110,24 +110,6 @@ useEffect(() => {
         setSortedArray(...[tempSortedArray]);
       }
     });
-  };
-
-  //connect to metamask
-  const connectToMetamask = async () => {
-    try {
-      const provider = new ethers.providers.Web3Provider(
-        window.ethereum,
-        'any'
-      );
-      await provider.send('eth_requestAccounts', []);
-      const signer = provider.getSigner();
-      const addr = await signer.getAddress();
-      setSigner(signer);
-      console.log('account: ', addr);
-      setConnectedAddress(addr);
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   //checking granted roles for user
@@ -218,8 +200,16 @@ useEffect(() => {
   return (
     <div className={styles.container}>
       <title>STORM</title>
+      <div className={styles.walletBar}>
+
+      <button onClick={connectHandler} className={styles.walletbtn}>              <Image
+              src="/wallet.png"
+              alt="Picture of the author"
+              width={25}
+              height={20}
+            /></button>
+      </div>
       <main>
-        <button onClick={connectHandler}>Connect Wallet</button>
         <ToastContainer transition={Flip} />
         <div className={styles.shape}>
           <div className={styles.appName}>
