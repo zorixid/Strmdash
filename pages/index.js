@@ -29,7 +29,12 @@ export default function Home() {
     apiCall();
   }, []);
 
-  useEffect(() => connectToMetamask, []);
+  // useEffect(() => connectToMetamask, []);
+useEffect(() => {
+  connectHandler()
+
+
+}, [])
 
   useEffect(() => {
     if (window.ethereum) {
