@@ -31,7 +31,37 @@ export default function Home() {
 
   useEffect(() => connectToMetamask, []);
 
-  //fetching all transactions etherscan api 
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', connectToMetamask);
+      window.ethereum.on('chainChanged', connectToMetamask);
+    }
+  }, []);
+
+  const connectHandler = async () => {
+    if (window.ethereum) {
+      try {
+        const provider = new ethers.providers.Web3Provider(
+          window.ethereum,
+          'any'
+        );
+
+        await provider.send('eth_requestAccounts', []);
+        const signer = provider.getSigner();
+        const addr = await signer.getAddress();
+        setSigner(signer);
+        console.log('account: ', addr);
+        setConnectedAddress(addr);
+      } catch (err) {
+        console.error(err);
+        alert('There was a problem connecting to MetaMask');
+      }
+    } else {
+      alert('Install MetaMask');
+    }
+  };
+
+  //fetching all transactions etherscan api
   const apiCall = async () => {
     axios
       .get(
@@ -42,8 +72,7 @@ export default function Home() {
       });
   };
 
-
-  //sorting array to remove unfrozen and duplicates 
+  //sorting array to remove unfrozen and duplicates
   const sortArray = async (_data) => {
     let tempSortedArray = [];
     _data.map((x) => {
@@ -78,7 +107,7 @@ export default function Home() {
     });
   };
 
-  //connect to metamask 
+  //connect to metamask
   const connectToMetamask = async () => {
     try {
       const provider = new ethers.providers.Web3Provider(
@@ -185,6 +214,7 @@ export default function Home() {
     <div className={styles.container}>
       <title>STORM</title>
       <main>
+        <button onClick={connectHandler}>Connect Wallet</button>
         <ToastContainer transition={Flip} />
         <div className={styles.shape}>
           <div className={styles.appName}>
@@ -250,7 +280,7 @@ export default function Home() {
           </div>
           <div className={styles.listSection}>
             <ul className={styles.listShape}>
-            <p className={styles.allFrozenTitle}>ALL FROZEN ADDRESSES</p>
+              <p className={styles.allFrozenTitle}>ALL FROZEN ADDRESSES</p>
               {sortedArray.map(function (item, i) {
                 return <Records key={i} data={item?.address} />;
               })}
