@@ -1,0 +1,8 @@
+.bannerWrapper {
+  font-size: small;
+}
+
+.item {
+  color: rgb(255, 255, 255);
+  overflow-wrap: break-word;
+}

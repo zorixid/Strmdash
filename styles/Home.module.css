@@ -1,129 +1,212 @@
 .container {
-  padding: 0 2rem;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../public/bg.jpg');
+  padding-top: 5rem;
+  padding-bottom: 20rem;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.shape {
+  height: auto;
+  background-color: rgba(73, 65, 88, 0.106);
+  border-radius: 50px;
+  color: white;
+  font-size: 10px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgba(67, 58, 84, 0.216);
+  padding: 10px;
+  backdrop-filter: blur(5px);
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.appName {
+  background-color: rgba(255, 255, 255, 0.088);
+  height: 4rem;
+  border-radius: 40px 40px 0 0;
+  padding: 0.5rem;
+  text-align: center;
+}
+.appName h1 {
+  color: rgba(188, 188, 188, 0.763);
+  font-weight: 300;
+  font-size: small;
+  padding: 0.7rem;
+  
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.initialisers {
+  background-color: rgba(255, 255, 255, 0.088);
+  height: 9rem;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 5px;
+  
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.initialisers h2 {
+  color: rgba(225, 224, 224, 0.763);
+  font-weight: 300;
+  overflow-wrap: break-word;
+
+
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.inputSection {
+  background-color: rgba(255, 255, 255, 0.088);
+  height: 10rem;
+  padding: 1rem;
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.inputField {
+  width: 80%;
+  height: 3rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  border: 2px solid rgba(226, 226, 226, 0.121);
+  background-color: rgba(34, 34, 34, 0.345);
+  font-weight: 300;
+  text-align: center;
+  color: rgb(178, 178, 178);
+}
+.inputField:focus {
+  outline: none;
+  box-shadow: rgba(255, 255, 255, 0.109) 0px 0px 100px;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+.buttonRack {
+  width: 100%;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.btnFreeze {
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 20px 0 0 20px;
+  padding: 0.5rem;
+  border: 1px solid rgba(145, 145, 145, 0.284);
+  background-color: rgba(149, 149, 149, 0.345);
+  font-weight: 300;
+  text-align: center;
+  color: rgb(178, 178, 178);
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.btnFreeze:hover {
+  background-color: rgba(255, 255, 255, 0.335);
+  color: white;
+}
+.btnFreeze:active {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.btnCheck {
+  width: 10rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(145, 145, 145, 0.284);
+  background-color: rgba(149, 149, 149, 0.345);
+  font-weight: 300;
+  text-align: center;
+  color: rgb(178, 178, 178);
+}
+.btnCheck:hover {
+  background-color: rgba(255, 255, 255, 0.335);
+  color: white;
+}
+.btnCheck:active {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.btnUnFreeze {
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 0 20px 20px 0;
+  padding: 0.5rem;
+  border: 1px solid rgba(145, 145, 145, 0.284);
+  background-color: rgba(149, 149, 149, 0.345);
+  font-weight: 300;
+  text-align: center;
+  color: rgb(178, 178, 178);
+}
+.btnUnFreeze:hover {
+  background-color: rgba(255, 255, 255, 0.335);
+  color: white;
+}
+.btnUnFreeze:active {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.refreshSection {
+  background-color: rgba(255, 255, 255, 0.088);
+  height: 1rem;
+  padding: 1rem;
+  text-align: right;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.refresh {
+  border-radius: 50px 50px 50px 50px;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid rgba(145, 145, 145, 0.284);
+  background-color: rgba(255, 255, 255, 0.088);
+  font-weight: 300;
+  text-align: center;
+  color: rgb(178, 178, 178);
+  transition: transform 0.7s ease-in-out;
+  padding-top: 4px;
+}
+.refresh:hover {
+  background-color: rgba(255, 255, 255, 0.335);
+  color: white;
+  transform: rotate(360deg);
+}
+.refresh:active {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: rotate(360deg);
 }
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
+.allFrozenTitle {
+  color: rgba(225, 224, 224, 0.763);
+  font-weight: 300;
+  font-size: larger;
+  overflow-wrap: break-word;
+  padding-bottom: 0.9rem;
+
 }
+.listSection {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.088),
+    rgba(255, 255, 255, 0.238)
+  );
+  height: auto;
+  padding-top: 0.1rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.listSection ul {
+  background-color: rgba(255, 255, 255, 0.235);
+  margin: 0 5rem 0 5rem;
+  padding: 2rem;
+  border-radius: 20px;
+}
+.footer {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.238),
+    rgba(255, 255, 255, 0.238)
+  );
+  height: 4rem;
+  border-radius: 0px 0px 40px 40px;
+  padding-top: 2rem;
+  text-align: center;
+  font-weight: 300;
+  font-size: x-small;
+  color: rgba(222, 222, 222, 0.76);
+}
+
