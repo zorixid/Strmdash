@@ -18,7 +18,7 @@ export default function Home() {
   );
   const [fieldValue, setFieldValue] = useState('');
   const [sortedArray, setSortedArray] = useState([]);
-  const [userRoles, setUserRoles] = useState(['FALSE']);
+  const [userRoles, setUserRoles] = useState(['']);
   const smartContract = new ethers.Contract(
     contract.address,
     contract.abi,
@@ -57,6 +57,7 @@ useEffect(() => {
         setSigner(signer);
         console.log('account: ', addr);
         setConnectedAddress(addr);
+        checkRoles();
       } catch (err) {
         console.error(err);
         toast.info(`Connecting to your wallet`, {
@@ -123,8 +124,11 @@ useEffect(() => {
           COMPLIANCE_ROLE,
           connectedAddress
         );
+     
         if (hasRole) {
           setUserRoles('TRUE');
+        } else {
+          setUserRoles('FALSE');
         }
       }
     } catch (error) {
@@ -132,6 +136,7 @@ useEffect(() => {
       toast.error(error.reason);
     }
   };
+
 
   //freeze address
   const freeze = async () => {
